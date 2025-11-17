@@ -1,5 +1,6 @@
 package com.betanooblabs.rockpaperscissor
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         val btnPlayWithOther: Button = findViewById(R.id.btnPlayWithOther)
         btnPlayWithOther.setOnClickListener {
-
+            val intent = Intent(this, PlayWithOther::class.java)
+            startActivity(intent)
         }
 
         val btnPlayWithComputer: Button = findViewById(R.id.btnPlayWithComputer)
