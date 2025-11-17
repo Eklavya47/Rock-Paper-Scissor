@@ -12,7 +12,7 @@
         android:id="@+id/tvPlayerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Congratulations"
+        android:text="Player"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"

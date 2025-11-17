@@ -196,10 +196,19 @@ class PlayWithOther : AppCompatActivity() {
 
     private fun endGame(){
         if (scoreP1 == 3 || scoreP2 == 3){
+            val winner = if (scoreP1 == 3)
+                playerName1
+            else
+                playerName2
             val intent = Intent(this, FinishActivity::class.java)
+            intent.putExtra("winner", winner)
             startActivity(intent)
             finish()
         }
+    }
+
+    override fun onBackPressed() {
+        finish()
     }
 
     override fun onDestroy() {
