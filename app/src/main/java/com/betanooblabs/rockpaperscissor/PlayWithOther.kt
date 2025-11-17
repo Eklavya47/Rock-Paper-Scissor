@@ -1,8 +1,13 @@
 package com.betanooblabs.rockpaperscissor
 
+import android.app.Dialog
+import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -26,6 +31,9 @@ class PlayWithOther : AppCompatActivity() {
     private var scoreP1 = 0
     private var scoreP2 = 0
 
+    private var playerName1 = "Player 1"
+    private var playerName2 = "Player 2"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -36,6 +44,8 @@ class PlayWithOther : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        getPlayerNames()
+
         binding?.btnP1Rock?.setOnClickListener {
             onPlayP1("rock")
         }
@@ -76,6 +86,7 @@ class PlayWithOther : AppCompatActivity() {
                 binding?.ivIconP2?.setBackgroundResource(0)
                 setSelectedIcon()
                 setScore()
+                endGame()
             }
 
             override fun onTick(millisUntilFinished: Long) {
@@ -160,6 +171,34 @@ class PlayWithOther : AppCompatActivity() {
                 2 -> binding?.ivP2Star2?.setImageResource(R.drawable.star)
                 3 -> binding?.ivP2Star3?.setImageResource(R.drawable.star)
             }
+        }
+    }
+
+    private fun getPlayerNames(){
+        val nameDialog = Dialog(this)
+        nameDialog.setContentView(R.layout.player_name_dialog)
+        nameDialog.findViewById<Button>(R.id.btnOK).setOnClickListener {
+            val name1 = nameDialog.findViewById<EditText>(R.id.etName1).text
+            val name2 = nameDialog.findViewById<EditText>(R.id.etName2).text
+            if (name1.isNotEmpty() && name2.isNotEmpty()){
+                playerName1 = name1.toString()
+                playerName2 = name2.toString()
+                binding?.playerName1?.text = playerName1
+                binding?.playerName2?.text = playerName2
+                nameDialog.cancel()
+            }
+            else{
+                Toast.makeText(this, "Enter Both Players Name", Toast.LENGTH_SHORT).show()
+            }
+        }
+        nameDialog.show()
+    }
+
+    private fun endGame(){
+        if (scoreP1 == 3 || scoreP2 == 3){
+            val intent = Intent(this, FinishActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
