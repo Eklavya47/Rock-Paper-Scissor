@@ -1,5 +1,6 @@
 package com.betanooblabs.rockpaperscissor
 
+import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -140,7 +141,9 @@ class PlayWithComputer : AppCompatActivity() {
                 "comp"
             else
                 "player"
-
+            val intent = Intent(this, FinishComp::class.java)
+            intent.putExtra("winner", winner)
+            startActivity(intent)
             finish()
         }
     }

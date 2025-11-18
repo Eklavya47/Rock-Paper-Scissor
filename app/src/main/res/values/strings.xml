@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Rock Paper Scissor</string>
+    <string name="instructions">
+        Rules:-\n\n
+         1. Rock crushes Scissor.\n
+         2. Scissor cuts Paper.\n
+         3. Paper covers Rock.\n\n
+         Winner:-\n\n
+         Whoever collects all 3 stars\n
+         first will be the winner.\n\n
+
+         Best of Luck..
+    </string>
 </resources>

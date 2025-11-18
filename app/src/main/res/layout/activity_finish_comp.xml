@@ -7,6 +7,43 @@
     android:layout_height="match_parent"
     tools:context=".FinishComp">
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/statusDisplay"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        tools:src="@drawable/win_gif"
+        android:layout_marginTop="136dp"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Congratulations \nYou Won!"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statusDisplay"
+        app:layout_constraintVertical_bias="0.326"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnHome"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_bg"
+        android:layout_marginBottom="32dp"
+        android:text="Home"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

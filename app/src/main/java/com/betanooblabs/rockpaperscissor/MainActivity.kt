@@ -1,5 +1,6 @@
 package com.betanooblabs.rockpaperscissor
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -34,7 +35,15 @@ class MainActivity : AppCompatActivity() {
 
         val tvInstruction: TextView = findViewById(R.id.tvInstruction)
         tvInstruction.setOnClickListener {
-
+            showInstructions()
         }
+    }
+    private fun showInstructions(){
+        val instructionDialog = Dialog(this)
+        instructionDialog.setContentView(R.layout.instructions_dialog)
+        instructionDialog.findViewById<Button>(R.id.btnOk).setOnClickListener {
+            instructionDialog.cancel()
+        }
+        instructionDialog.show()
     }
 }
