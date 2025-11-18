@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RockPaperScissor">
         <activity
+            android:name=".FinishComp"
+            android:exported="false" />
+        <activity
+            android:name=".PlayWithComputer"
+            android:exported="false" />
+        <activity
             android:name=".FinishActivity"
             android:exported="false" />
         <activity

@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         val btnPlayWithComputer: Button = findViewById(R.id.btnPlayWithComputer)
         btnPlayWithComputer.setOnClickListener {
-
+            val intent = Intent(this, PlayWithComputer::class.java)
+            startActivity(intent)
         }
 
         val tvInstruction: TextView = findViewById(R.id.tvInstruction)
